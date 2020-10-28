@@ -10,7 +10,7 @@ a {
     font-size: smaller;
 }
 
-h1 {
+h1, h2 {
     color: #a4a400;
     background-color: #f0f0f0;
     font-family: monospace;
@@ -21,13 +21,13 @@ h1 {
     letter-spacing: 6px;
 }
 
-.mainHeading {
+h1 {
     font-size: 25px;
     font-weight: bold;
     display: inline-block;
 }
 
-.center {
+.mainHeading {
     text-align: center;
     width: 50%;
     margin: auto;
