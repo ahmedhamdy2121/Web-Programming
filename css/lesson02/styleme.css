@@ -1,0 +1,89 @@
+/* File created by Ahmed Hamdy at 10/28/2020. */
+body {
+    /* reset body */
+    margin: 8px;
+    font-size: 100%;
+    line-height: 1;
+
+    background-color: burlywood;
+    font-family: Arial, fantasy;
+    padding: 5px;
+}
+
+header > p {
+    height: 50px;
+}
+
+header > p::first-letter {
+    font-size: 3em;
+    border: 1px solid blue;
+    background: red;
+    display: block;
+    float: left;
+    padding: 2px;
+    margin-right: 4px;
+    line-height: 1;
+}
+
+header > p::first-line {
+    margin-top: 20px;
+    line-height: 3;
+}
+
+q {
+    padding: 20px;
+    font-style: italic;
+    color: blueviolet;
+}
+
+p::first-letter {
+    font-size: 1.5em;
+}
+
+h1 {
+    color: blue;
+    font-family: "Times New Roman", fantasy;
+}
+
+h3 {
+    color: crimson;
+    font-family: Verdana, fantasy;
+}
+
+.keyword {
+    color: green;
+    font-weight: bold;
+}
+
+a {
+    color: red;
+    text-decoration: none;
+}
+
+a:hover {
+    color: green;
+    text-decoration: underline;
+}
+
+span.moodStyle {
+    font-style: italic;
+}
+
+img.moodStyle {
+    width: 300px;
+}
+
+dt {
+    color: darkgreen;
+    font-family: cursive, fantasy;
+    margin: 5px;
+}
+
+li {
+    margin: 5px;
+}
+
+#moviesList {
+    display: flex;
+    flex-direction: column-reverse;
+}
