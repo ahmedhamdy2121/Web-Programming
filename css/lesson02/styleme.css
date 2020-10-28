@@ -87,3 +87,7 @@ li {
     display: flex;
     flex-direction: column-reverse;
 }
+
+footer {
+    margin-top: 30px
+}
