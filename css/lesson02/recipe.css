@@ -1,65 +1,70 @@
 /* File created by Ahmed Hamdy at 10/28/2020. */
+
 body {
+    background: url("../../images/lesson02/silverware.jpg") repeat;
     font-family: Georgia, serif;
-    background: url("../../images/lesson02/silverware.jpg")
-    repeat;
 }
 
+/*********** LINK ***********/
 a {
     color: #a4a400;
     font-size: smaller;
 }
 
+/*********** TEXT *************/
 h1, h2 {
-    color: #a4a400;
     background-color: #f0f0f0;
+    color: #a4a400;
     font-family: monospace;
-    text-decoration: underline;
-    font-weight: lighter;
     font-size: 20px;
-    width: fit-content;
+    font-weight: lighter;
     letter-spacing: 6px;
+    text-decoration: underline;
+    width: fit-content;
 }
 
 h1 {
+    display: inline-block;
     font-size: 25px;
     font-weight: bold;
-    display: inline-block;
 }
 
-.mainHeading {
-    text-align: center;
-    width: 50%;
-    margin: auto;
+/********** FOOTER *************/
+footer {
+    margin-top: 30px;
+    text-align: right;
 }
 
+footer div.copyRight {
+    clear: both;
+    display: block;
+    font-family: monospace;
+    line-height: 2px;
+    padding-top: 10px;
+}
+
+/********** LIST ***********/
 ul {
     list-style-image: url("../../images/lesson02/pie_icon.gif");
+}
+
+/************ CLASS SELECTOR **************/
+.comment {
+    background-color: #ffffa8;
+    font-size: 11pt;
+    font-style: italic;
 }
 
 .items {
     line-height: 0;
 }
 
-.comment {
-    background-color: #ffffa8;
-    font-style: italic;
-    font-size: 11pt;
+.mainHeading {
+    margin: auto;
+    text-align: center;
+    width: 50%;
 }
 
 .through {
     text-decoration: line-through;
-}
-
-footer {
-    margin-top: 30px;
-    text-align: right;
-}
-
-footer div.copyRight{
-    padding-top: 10px;
-    clear: both;
-    display: block;
-    font-family: monospace;
-    line-height: 2px;
 }

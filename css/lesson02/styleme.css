@@ -1,60 +1,17 @@
 /* File created by Ahmed Hamdy at 10/28/2020. */
+
 body {
     /* reset body */
-    margin: 8px;
-    font-size: 100%;
-    line-height: 1;
-
     background-color: burlywood;
     font-family: Arial, fantasy;
+    font-size: 100%;
+
+    line-height: 1;
+    margin: 8px;
     padding: 5px;
 }
 
-header > p {
-    height: 50px;
-}
-
-header > p::first-letter {
-    font-size: 3em;
-    border: 1px solid blue;
-    background: red;
-    display: block;
-    float: left;
-    padding: 2px;
-    margin-right: 4px;
-    line-height: 1;
-}
-
-header > p::first-line {
-    margin-top: 20px;
-    line-height: 3;
-}
-
-q {
-    padding: 20px;
-    font-style: italic;
-    color: blueviolet;
-}
-
-p::first-letter {
-    font-size: 1.5em;
-}
-
-h1 {
-    color: blue;
-    font-family: "Times New Roman", fantasy;
-}
-
-h3 {
-    color: crimson;
-    font-family: Verdana, fantasy;
-}
-
-.keyword {
-    color: green;
-    font-weight: bold;
-}
-
+/*********** LINKS ************/
 a {
     color: red;
     text-decoration: none;
@@ -65,14 +22,54 @@ a:hover {
     text-decoration: underline;
 }
 
+/*********** HEADER **********/
+header > p {
+    height: 50px;
+}
+
+header > p::first-letter {
+    background: red;
+    border: 1px solid blue;
+    display: block;
+    float: left;
+    font-size: 3em;
+    line-height: 1;
+    margin-right: 4px;
+    padding: 2px;
+}
+
+header > p::first-line {
+    line-height: 3;
+    margin-top: 20px;
+}
+
+/*********** TEXT ************/
+h1 {
+    color: blue;
+    font-family: "Times New Roman", fantasy;
+}
+
+h3 {
+    color: crimson;
+    font-family: Verdana, fantasy;
+}
+
+p::first-letter {
+    font-size: 1.5em;
+}
+
+q {
+    color: blueviolet;
+    font-style: italic;
+    padding: 20px;
+}
+
+/*************** DIV AND SPAN ********************/
 span.moodStyle {
     font-style: italic;
 }
 
-img.moodStyle {
-    width: 300px;
-}
-
+/************* LIST *************/
 dt {
     color: darkgreen;
     font-family: cursive, fantasy;
@@ -83,11 +80,24 @@ li {
     margin: 5px;
 }
 
+/************ IMAGE **************/
+img.moodStyle {
+    width: 300px;
+}
+
+/*********** FOOTER ************/
+footer {
+    margin-top: 30px
+}
+
+/********** ID SELECTOR *************/
 #moviesList {
     display: flex;
     flex-direction: column-reverse;
 }
 
-footer {
-    margin-top: 30px
+/************ CLASS SELECTOR **************/
+.keyword {
+    color: green;
+    font-weight: bold;
 }
