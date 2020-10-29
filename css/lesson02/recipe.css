@@ -36,8 +36,6 @@ footer {
 }
 
 footer div.copyRight {
-    clear: both;
-    display: block;
     font-family: monospace;
     line-height: 2px;
     padding-top: 10px;
