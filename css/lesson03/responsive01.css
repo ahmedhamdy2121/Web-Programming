@@ -1,0 +1,75 @@
+/* File created by Ahmed Hamdy at 10/30/2020. */
+
+*:not(h1) {
+    font-size: large;
+}
+
+header, footer {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(173, 216, 230);
+}
+
+footer {
+    background: rgb(47, 79, 79);
+    color: white;
+}
+
+nav {
+    height: 90%;
+    width:100%;
+    display: flex;
+    align-items: center;
+    background: rgb(47, 79, 79);
+    color: white;
+}
+
+.menu {
+    float: left;
+    padding: 14px;
+    border-right: 1px solid black;
+}
+
+main {
+    position: relative;
+}
+
+.column {
+    float: left;
+    height: 230px;
+    padding: 10px;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+#col1 {
+    width: 50%;
+    background: rgb(170, 170, 170);
+}
+
+#col3 {
+    width: 50%;
+    background: rgb(204, 204, 204);
+    position: absolute;
+}
+
+#col2 {
+    width: 100%;
+    background: rgb(187, 187, 187);
+    clear: left;
+}
+
+/************** RESPONSIVE ****************/
+@media only screen and (min-width: 600px) {
+    #col1, #col3 {
+        width: 28%;
+    }
+
+    #col2 {
+        width: 44%;
+        clear: none;
+    }
+}
