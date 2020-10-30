@@ -1,5 +1,5 @@
 /* File created by Ahmed Hamdy at 10/30/2020. */
-
+/* using float */
 *:not(h1) {
     font-size: large;
 }
@@ -7,9 +7,8 @@
 header, footer {
     height: 70px;
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: table;
+
     background: rgb(173, 216, 230);
 }
 
@@ -18,10 +17,16 @@ footer {
     color: white;
 }
 
+h1, footer > div {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
 nav {
     height: 90%;
     width:100%;
-    display: flex;
+    display: table;
     align-items: center;
     background: rgb(47, 79, 79);
     color: white;
