@@ -17,7 +17,7 @@ footer {
     color: white;
 }
 
-h1, footer > div {
+h1, footer > p {
     display: table-cell;
     text-align: center;
     vertical-align: middle;
