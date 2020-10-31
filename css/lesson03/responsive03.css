@@ -1,0 +1,89 @@
+/* File created by Ahmed Hamdy at 10/30/2020. */
+/* using grid */
+
+*:not(h1) {
+    font-size: large;
+
+    /* include the padding and border in an element's total width and height */
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    grid-template-areas:
+        'header header'
+        'nav nav'
+        'col1 col3'
+        'col2 col2'
+        'footer footer';
+}
+
+header, footer {
+    text-align: center;
+}
+
+header {
+    grid-area: header;
+
+    background: rgb(173, 216, 230);
+}
+
+footer {
+    grid-area: footer;
+
+    padding: 7px;
+    background: rgb(47, 79, 79);
+    color: white;
+}
+
+h1 {
+    margin: 14px;
+}
+
+nav {
+    grid-area: nav;
+
+    display: flex;
+    text-align: center;
+    background: rgb(47, 79, 79);
+    color: white;
+}
+
+.menu {
+    padding: 14px;
+    border-right: 1px solid black;
+}
+
+.column {
+    height: 230px;
+    padding: 10px;
+}
+
+#col1 {
+    grid-area: col1;
+
+    background: rgb(170, 170, 170);
+}
+
+#col2 {
+    grid-area: col2;
+
+    background: rgb(187, 187, 187);
+}
+
+#col3 {
+    grid-area: col3;
+
+    background: rgb(204, 204, 204);
+}
+
+/************** RESPONSIVE ****************/
+@media only screen and (min-width: 600px) {
+    body {
+        grid-template-areas:
+        'header header header header header'
+        'nav nav nav nav nav'
+        'col1 col2 col2 col2 col3'
+        'footer footer footer footer footer';
+    }
+}
