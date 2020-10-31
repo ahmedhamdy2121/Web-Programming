@@ -1,0 +1,52 @@
+/* File created by Ahmed Hamdy at 10/30/2020. */
+/* using bootstrap */
+
+*:not(h1) {
+    font-size: large;
+}
+
+header, footer {
+    height: 70px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background: rgb(173, 216, 230);
+}
+
+footer {
+    background: rgb(47, 79, 79);
+    color: white;
+}
+
+nav {
+    height: 90%;
+    width:100%;
+    align-items: center;
+    background: rgb(47, 79, 79);
+    color: white;
+}
+
+.menu {
+    padding: 14px;
+    border-right: 1px solid black;
+}
+
+.column {
+    height: 230px;
+    padding: 10px;
+
+    /* include the padding and border in an element's total width and height */
+    box-sizing: border-box;
+}
+
+#col1 {
+    background: rgb(170, 170, 170);
+}
+
+#col2 {
+    background: rgb(187, 187, 187);
+}
+
+#col3 {
+    background: rgb(204, 204, 204);
+}
