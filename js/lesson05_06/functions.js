@@ -44,7 +44,7 @@ function reverse(str) {
 
 /* 6) takes an array of words and returns the length of the longest one */
 function findLongestWord(wordArray) {
-    return wordArray.reduce((prev, curr) => prev.length > curr.length ? prev : curr);
+    return wordArray.reduce((prev, curr) => prev.length > curr.length ? prev: curr);
 }
 
 /* 7) takes an array of words and an integer i and returns the array of words that are longer than i */
