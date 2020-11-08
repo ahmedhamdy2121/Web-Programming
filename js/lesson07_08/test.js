@@ -30,6 +30,8 @@
 
     const prefix = "Expected output of ";
 
+    console.log('********************** Solutions for Exercises 1, 2, 3 *************************');
+
     // 1
     console.log(prefix + "'This house is not nice!'.filter('not') is 'This house is nice!' "
         + myFunctionTest('This house is nice!', function() {

@@ -56,6 +56,7 @@ Array.prototype.bubbleSort = function() {
     // Teacher has method teach that receives a parameter subject
 
 // using function constructor
+console.log('******************** Solutions for Exercise 3 using Constructor *******************');
 
 // parent
 const Person = function(name) {
@@ -78,6 +79,8 @@ const teacherOb1 = new Teacher('Ahmed');
 teacherOb1.teach('OOP');
 
 // using Object.create
+console.log('******************** Solutions for Exercise 3 using Object.create *******************');
+
 {
     // parent
     const Person = {
@@ -95,9 +98,19 @@ teacherOb1.teach('OOP');
     const teacherOb2 = Object.create(Teacher);
     teacherOb2.name = 'Ahmed';
     teacherOb2.teach('DS');
+
+    const makeTeacher = function(name) {
+        let t = Object.create(Teacher);
+        t.name = name;
+        return t;
+    }
+
+    const t = makeTeacher('Ahmed');
+    t.teach('DP');
 }
 
 // Exercise 4:
+console.log('******************** Solutions for Exercise 4 using Constructor *******************');
 
 {
     // parent
@@ -149,9 +162,74 @@ teacherOb1.teach('OOP');
     p.greeting();
 }
 
+console.log('******************** Solutions for Exercise 4 using Object.create *******************');
+
+{
+    // parent
+    const Person = {
+        name: '',
+        age: 0,
+        greeting: function() {
+            console.log('Greetings, my name is ' + this.name + ' and I am ' + this.age + ' years old.');
+        },
+        salute: function() {
+            console.log('Good morning!, and in case I dont see you, ' +
+                'good afternoon, good evening and good night!');
+        }
+    }
+
+    // child
+    const Student = Object.create(Person);
+
+    Student.major = '';
+
+    Student.greeting = function() {
+        console.log('Hey, my name is ' + this.name + ' and I am studying ' + this.major + ".");
+    }
+
+    const makeStudent = function (name, age, major) {
+        let s = Object.create(Student);
+
+        s.name = name;
+        s.age = age;
+        s.major = major;
+
+        return s;
+    };
+
+    const Professor = Object.create(Person);
+
+    Professor.department = '';
+
+    Professor.greeting = function() {
+        console.log('Good day, my name is ' + this.name
+            + ' and I am in the ' + this.department + ' department.');
+    }
+
+    const makeProfessor = function (name, age, department) {
+        let p = Object.create(Professor);
+
+        p.name = name;
+        p.age = age;
+        p.department = department;
+
+        return p;
+    };
+
+    // test
+    const s = makeStudent('Mohamed', 25, 'Math');
+    s.salute();
+    s.greeting();
+    const p = makeProfessor('Ahmed', 29, 'CS');
+    p.salute();
+    p.greeting();
+}
+
 // encapsulation with modules
 // References: https://stackoverflow.com/questions/9878128/module-pattern-with-constructor
 // References: https://css-tricks.com/implementing-private-variables-in-javascript/
+console.log('******************** Solutions for Exercise 4 using modules *******************');
+
 {
     const Person = (function() {
 
