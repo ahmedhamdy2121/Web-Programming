@@ -1,0 +1,88 @@
+/* File created by Ahmed Hamdy at 11/8/2020. */
+
+body {
+    background-color: #CCCCFF;
+    font-family: sans-serif;
+    font-size: 14pt;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.container {
+    margin: 0 auto;
+    width: 960px;
+}
+
+h1 {
+    margin-bottom: initial;
+}
+
+header p {
+    margin: 0;
+}
+
+header a {
+    text-decoration: underline;
+    color: red;
+    cursor: pointer;
+}
+
+#text-area {
+    font-family: monospace;
+    font-size: 12pt;
+    width: 100%;
+    border: groove;
+    height: 390px;
+}
+
+fieldset {
+    border: 5px solid black;
+    display: inline;
+}
+
+legend {
+    text-align: left;
+}
+
+button {
+    width: 47%;
+}
+
+select {
+    width: 95%;
+}
+
+#validate {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    float: right;
+}
+
+.popup {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: darkgray;
+    padding: 10px;
+    border: 2px outset #8A8;
+    border-radius: 35px;
+    width: 12%;
+    left: 50%;
+    opacity: 0.8;
+    text-align: center;
+}
+
+.popup p {
+    font-size: medium;
+}
+
+.close {
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
