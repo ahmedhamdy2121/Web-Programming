@@ -41,6 +41,8 @@
             <nav>
                 <a href = "#" id = "saveTask">Save task</a>
                 <a href = "#" id = "clearTask">Clear task</a>
+                <a href = "#" id = "printTask">Print object to console</a>
+                <a href = "#" id = "loadTask">Load object into console (like edit button)</a>
             </nav>
         </form>
     </section>
@@ -73,6 +75,8 @@
 
 <script>
     $(document).on("ready", function() {
+
+        console.log("starting functions in document.ready");
 
         // Generic: adding the red * for required fields
         $('[required = "required"]').prev('label').append('<span>*</span>')
@@ -115,11 +119,6 @@
             $(evt.target).parents('tr').toggleClass('completed');
         });
 
-        $('#clearTask').on('click', function(evt) {
-            evt.preventDefault(); // to prevent default browser behavior for links (fix jumping screen)
-            $('form')[0].reset();
-        });
-
         // adding new row by using JQuery plugin 'toObject' and by using JQuery template 'taskRow'
         $('#saveTask').on('click', function(evt) {
             evt.preventDefault(); // to prevent default browser behavior for links (fix jumping screen)
@@ -134,10 +133,32 @@
             }
         });
 
+        $('#clearTask').on('click', function(evt) {
+            evt.preventDefault(); // to prevent default browser behavior for links (fix jumping screen)
+            $('form')[0].reset();
+        });
+
+        $('#printTask').on('click', function(evt) {
+            evt.preventDefault(); // to prevent default browser behavior for links (fix jumping screen)
+            console.log(JSON.stringify($('form').toObject()));
+        });
+
+        $('#loadTask').on('click', function(evt) {
+            evt.preventDefault(); // to prevent default browser behavior for links (fix jumping screen)
+            const task = {
+                task: 'Demo Task',
+                requiredBy: '2012-12-12',
+                category: "Work"
+            };
+            $('form').fromObject(task);
+        });
     });
 
     // JQuery Plugin to pars the form data to/from object
+    // this is the first thing to be executed right after document.ready
     (function($) {
+        console.log("JQuery Plugins init()");
+
         $.fn.extend({
             toObject: function() {
                 return $(this.serializeArray()).map(function() {
