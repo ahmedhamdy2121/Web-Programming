@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<!-- File created by Ahmed Hamdy at 11/26/2020. -->
+<!--suppress HtmlDeprecatedAttribute -->
+<html lang = "en">
+<head>
+    <meta charset = "utf-8">
+    <meta content = "width=device-width, initial-scale=1.0" name = "viewport">
+
+    <!-- provided files; do not modify -->
+    <link href = "css/lesson10/tasks.css" media = "screen" rel = "stylesheet" type = "text/css" />
+    <script src = "js/lesson10/jquery-2.0.3.js"></script>
+    <script src = "js/lesson10/jquery-tmpl.js"></script>
+
+    <link href = "images/lesson07_08/icon.png" rel = "icon" type = "image/jpg">
+    <title>Task list</title>
+</head>
+<body>
+<header>
+    <span>Task list</span>
+</header>
+<main>
+    <section class = "not" id = "taskCreation">
+        <form>
+            <div>
+                <label for = "task">Task: </label>
+                <input class = "large" name = "task" id = "task"
+                       placeholder = "Please fill task name here"
+                       required = "required" type = "text" />
+            </div>
+            <div>
+                <label for = "requiredBy">Required by: </label>
+                <input name = "requiredBy" id = "requiredBy" required = "required" type = "date" />
+            </div>
+            <div>
+                <label for = "category">Category: </label>
+                <select name = "category" id = "category">
+                    <option value = "Personal">Personal</option>
+                    <option value = "Work">Work</option>
+                </select>
+            </div>
+            <nav>
+                <a href = "#" id = "saveTask">Save task</a>
+                <a href = "#" id = "clearTask">Clear task</a>
+            </nav>
+        </form>
+    </section>
+    <section>
+        <table id = "tblTasks">
+            <colgroup>
+                <col width = "40%">
+                <col width = "15%">
+                <col width = "15%">
+                <col width = "30%">
+            </colgroup>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Due</th>
+                <th>Category</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <nav>
+            <a href = "#" id = "btnAddTask">Add task</a>
+        </nav>
+    </section>
+</main>
+<footer>You have 3 tasks</footer>
+</body>
+
+<script>
+    $(document).on("ready", function() {
+
+        // Generic: adding the red * for required fields
+        $('[required = "required"]').prev('label').append('<span>*</span>')
+            .children('span').addClass('required');
+
+        // Generic: add different class for even rows in the table
+        // not working, I fixed it in the CSS, check even class
+        // $('tbody tr:even').addClass('even');
+
+        $('#btnAddTask').on('click', function(evt) {
+            evt.preventDefault(); // to prevent default browser behavior for links (fix jumping screen)
+            $('#taskCreation').removeClass('not'); // show the form
+        });
+
+        // Generic: set selection on row on click
+        // it wasn't working and I fixed it
+        $('tbody').on('click', function(evt) {
+            $(evt.target).closest('td').siblings().andSelf().toggleClass('rowHighlight');
+        });
+
+        const rowActions = $('#tblTasks tbody');
+
+        // the below callback will only be called when the target has class 'deleteRow'
+        // i.e. when the delete button clicked in the row
+        rowActions.on('click', '.deleteRow', function(evt) {
+            evt.preventDefault(); // to prevent default browser behavior for links (fix jumping screen)
+            $(evt.target).parents('tr').remove();
+        });
+
+        rowActions.on('click', '.editRow', function(evt) {
+            evt.preventDefault(); // to prevent default browser behavior for links (fix jumping screen)
+            evt.stopImmediatePropagation(); // also, prevent the row highlighting
+            const task = $(evt.target).parents('tr').rowToObject();
+            $('form').fromObject(task);
+        });
+
+        rowActions.on('click', '.completeRow', function(evt) {
+            evt.preventDefault(); // to prevent default browser behavior for links (fix jumping screen)
+            evt.stopImmediatePropagation(); // also, prevent the row highlighting
+            $(evt.target).parents('tr').toggleClass('completed');
+        });
+
+        $('#clearTask').on('click', function(evt) {
+            evt.preventDefault(); // to prevent default browser behavior for links (fix jumping screen)
+            $('form')[0].reset();
+        });
+
+        // adding new row by using JQuery plugin 'toObject' and by using JQuery template 'taskRow'
+        $('#saveTask').on('click', function(evt) {
+            evt.preventDefault(); // to prevent default browser behavior for links (fix jumping screen)
+            const task = $('form').toObject();
+            $('#taskRow').tmpl(task).appendTo($('#tblTasks tbody'));
+        });
+
+        $('#task').on('keypress', function(evt) {
+            if (evt.key === "Enter") {
+                evt.preventDefault();
+                $('#saveTask').trigger('click');
+            }
+        });
+
+    });
+
+    // JQuery Plugin to pars the form data to/from object
+    (function($) {
+        $.fn.extend({
+            toObject: function() {
+                return $(this.serializeArray()).map(function() {
+                   return JSON.parse('{"' + this.name + '"' + ':' + '"' + this.value + '"}');
+                }).get().reduce((a, b) => ({...a, ...b}), {});
+            },
+            rowToObject: function() {
+                return $(this).map(function(i, v) {
+                    const $td = $('td', v); // or $('td', this)
+                    return {
+                        task: $td.eq(0).text(),
+                        requiredBy: $td.eq(1).text().trim(),
+                        category: $td.eq(2).text()
+                    }
+                }).get()[0];
+            },
+            fromObject: function(obj) { // $('form').fromObject(obj)
+                $.each(this.find(':input'), function(i, v) {
+                    const name = $(v).attr('name');
+                    if (obj[name]) {
+                        $(v).val(obj[name]);
+                    } else {
+                        $(v).val('');
+                    }
+                });
+            }
+        });
+    })(jQuery);
+
+</script>
+
+<!-- JQuery template for adding the new row -->
+<script id = "taskRow" type = "text/x-jQuery-tmpl">
+<tr>
+	<td>${task}</td>
+	<td><time datetime="${requiredBy}"> ${requiredBy}</time></td>
+	<td>${category}</td>
+	<td>
+		<nav>
+			<a href="#" class="editRow">Edit</a>
+			<a href="#" class="completeRow">Complete</a>
+			<a href="#" class="deleteRow">Delete</a>
+		</nav>
+	</td>
+</tr>
+</script>
+
+</html>

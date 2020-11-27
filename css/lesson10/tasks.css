@@ -1,0 +1,139 @@
+@CHARSET "UTF-8";
+
+body, h1, h2, h3, h4, h5, h6, p, ul, dl, ol, form, fieldset, input, label, table, tbody, tfoot, th, tr, td, textarea, select {
+    border: 0;
+    color: #333;
+    font-family: "helvetica neue", helvetica, "lucinda sans unicode", "sans serif", fantasy;
+    font-size: 12px;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #d1e0e1;
+    color: #333;
+    font-size: 20px;
+    font-weight: bold;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    width: 100%;
+}
+
+footer {
+    background: #d1e0e1;
+    font-size: 12px;
+    height: 60px;
+    line-height: 80px;
+    margin-top: 30px;
+    text-align: center;
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid #888;
+}
+
+section {
+    margin: 20px 0 0 20px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 90%;
+}
+
+thead {
+    line-height: 30px;
+}
+
+thead th {
+    background: #53777a;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+}
+
+td {
+    font-size: 11px;
+    line-height: 25px;
+    padding-left: 10px;
+}
+
+#tblTasks tr:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+nav {
+    margin: 15px 0 10px 0;
+}
+
+nav a {
+    background: #53777a;
+    border: 1px solid #5b5b5b;
+    color: #fff;
+    font-size: 13px;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    width: 80px;
+}
+
+label {
+    color: #333;
+    display: block;
+    padding: 8px 0 8px 0;
+}
+
+input {
+    border: 1px solid #AAA;
+    border-radius: 3px;
+    height: 24px;
+    padding: 0 7px;
+}
+
+input.large {
+    width: 400px;
+}
+
+select {
+    border: 1px solid #AAA;
+    margin-right: 15px;
+    overflow: hidden;
+    width: 200px;
+}
+
+.required {
+    color: red;
+}
+
+.not {
+    display: none;
+}
+
+.rowHighlight {
+    font-weight: bold;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+label.error {
+    color: red;
+    font-weight: bold;
+}
+
+.overdue {
+    background: #F7DCE5;
+}
+
+.warning {
+    background: #F7F7DC;
+}
+
+.taskCompleted {
+    text-decoration: line-through;
+}
