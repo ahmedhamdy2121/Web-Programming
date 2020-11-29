@@ -46,14 +46,6 @@
                 setInitCircle();
             }
 
-            function setInitCircle() {
-                circleClass.css({
-                    'height': initDiameter,
-                    'width': initDiameter,
-                    'border-radius': initDiameter / 2
-                });
-            }
-
             function grow() {
                 circleClass.css({
                     'height': (index, value) => {
@@ -76,6 +68,14 @@
                 clearInterval(timer);
             }
 
+            function setInitCircle() {
+                circleClass.css({
+                    'height': initDiameter,
+                    'width': initDiameter,
+                    'border-radius': initDiameter / 2
+                });
+            }
+
             return {
                 startGrowing: startAnimation,
                 stopGrowing: stopAnimation,
@@ -87,16 +87,13 @@
         // event handlers
         (function() {
 
+            // caching
             const stopButtonObj = $('#stopButton');
             const startButtonObj = $('#startButton');
+            const mainArea = $('main');
 
+            // template circle
             const circleTemplate = '<div class = "circle"></div>';
-
-            const initButtons = function() {
-                stopButtonObj.prop('disabled',true);
-                stopButtonObj.html('Stop');
-                startButtonObj.prop('disabled', false);
-            };
 
             // starting the animation
             startButtonObj.on('click', function (event) {
@@ -111,11 +108,8 @@
                 // caching the form
                 const formObj = $('form');
 
-                // validation (not a good practice, I should check internally and not access HTML)
-                formObj.find('input').each(((index, element) => {
-                    if (parseInt($(element).val()) < parseInt($(element).attr('min')))
-                        $(element).val(parseInt($(element).attr('min')));
-                }));
+                // validation
+                validateForm(formObj);
 
                 // take input from user
                 const values = formObj.toObject();
@@ -128,13 +122,6 @@
                 circleControl.inputValues(values);
                 circleControl.startGrowing();
             });
-
-            // adding other circles
-            function addCircles(val) {
-                const mainArea = $('main');
-                while (val-- > 0)
-                    mainArea.append(circleTemplate);
-            }
 
             // stopping the animation
             stopButtonObj.on('click', function (event) {
@@ -153,13 +140,33 @@
 
             // removing and resetting the circle
             // using event delegation
-            $('main').on('click', '.circle', function() {
+            mainArea.on('click', '.circle', function() {
                 $(this).remove();
                 if ($('.circle').length === 0) {
                     circleControl.stopGrowing();
                     initButtons();
                 }
             });
+
+            // validation (not a good practice, I should check internally and not access HTML)
+            function validateForm(formObj) {
+                formObj.find('input').each(((index, element) => {
+                    if (parseInt($(element).val()) < parseInt($(element).attr('min')))
+                        $(element).val(parseInt($(element).attr('min')));
+                }));
+            }
+
+            // adding other circles
+            function addCircles(val) {
+                while (val-- > 0)
+                    mainArea.append(circleTemplate);
+            }
+
+            const initButtons = function() {
+                stopButtonObj.prop('disabled',true);
+                stopButtonObj.html('Stop');
+                startButtonObj.prop('disabled', false);
+            };
 
         })();
 
