@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- File created by Ahmed Hamdy at 11/28/2020. -->
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+
+    <!-- link the style sheet here -->
+    <link href = "css/lesson10/circle.css" rel = "stylesheet" type = "text/css" />
+
+    <!-- link the javascript code here -->
+    <script src="js/jquery.min.js"></script>
+    <script src = "js/lesson10/circle.js"></script>
+
+    <link href = "images/lesson10/circle.png" rel = "icon" type = "image/png">
+    <title>Circle</title>
+</head>
+<body>
+<header class = "center">
+    <form class = "gridLayout">
+        <div>
+            <label for = "widthValue">Width Value: </label>
+            <input name = "widthValue" id = "widthValue"
+                   value = "50" min = "5"
+                   type = "text" />
+        </div>
+        <div>
+            <label for = "growthAmount">Growth Amount: </label>
+            <input name = "growthAmount" id = "growthAmount"
+                   value = "10" min = "0"
+                   type = "number" />
+        </div>
+        <div>
+            <label for = "growthRate">Growth Rate (ms): </label>
+            <input name = "growthRate" id = "growthRate"
+                   value = "250" min = "0"
+                   type = "number" />
+        </div>
+        <div>
+            <label for = "numOfCircles">Number of Circles: </label>
+            <input name = "numOfCircles" id = "numOfCircles"
+                   value = "1" min = "1"
+                   type = "number" />
+        </div>
+        <nav>
+            <button id = "startButton">Start</button>
+            <button id = "stopButton">Stop</button>
+        </nav>
+    </form>
+</header>
+
+<main class = "center">
+    <div class = "circle"></div>
+</main>
+
+<footer class = "center">
+    <p>
+        Click on any circle to remove!
+    </p>
+</footer>
+</body>
+</html>
