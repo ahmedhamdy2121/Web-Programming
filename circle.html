@@ -9,7 +9,7 @@
     <link href = "css/lesson10/circle.css" rel = "stylesheet" type = "text/css" />
 
     <!-- link the javascript code here -->
-    <script src="js/jquery.min.js"></script>
+    <script src="js/lesson10/jquery-2.0.3.js"></script>
     <script src = "js/lesson10/circle.js"></script>
 
     <link href = "images/lesson10/circle.png" rel = "icon" type = "image/png">
@@ -17,23 +17,23 @@
 </head>
 <body>
 <header class = "center">
-    <form class = "gridLayout">
+    <form class = "gridLayout" action = "#">
         <div>
             <label for = "widthValue">Width Value: </label>
             <input name = "widthValue" id = "widthValue"
                    value = "50" min = "5"
-                   type = "text" />
+                   type = "number" />
         </div>
         <div>
             <label for = "growthAmount">Growth Amount: </label>
             <input name = "growthAmount" id = "growthAmount"
-                   value = "10" min = "0"
+                   value = "10" min = "2"
                    type = "number" />
         </div>
         <div>
             <label for = "growthRate">Growth Rate (ms): </label>
             <input name = "growthRate" id = "growthRate"
-                   value = "250" min = "0"
+                   value = "250" min = "50"
                    type = "number" />
         </div>
         <div>
@@ -43,19 +43,19 @@
                    type = "number" />
         </div>
         <nav>
-            <button id = "startButton">Start</button>
-            <button id = "stopButton">Stop</button>
+            <button type = "submit" id = "startButton">Start</button>
+            <button id = "stopButton" disabled>Stop</button>
         </nav>
     </form>
 </header>
 
 <main class = "center">
-    <div class = "circle"></div>
+    <div class = "circle" id = "mainCircle"></div>
 </main>
 
 <footer class = "center">
     <p>
-        Click on any circle to remove!
+        Click on any circle to remove and init!
     </p>
 </footer>
 </body>
