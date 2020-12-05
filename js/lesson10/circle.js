@@ -9,7 +9,7 @@
         toObject: function() {
             return $(this.serializeArray()).map(function() {
                 return JSON.parse('{"' + this.name + '"' + ':' + '"' + this.value + '"}');
-            }).get().reduce((a, b) => ({...a, ...b}), {});
+            }).get().reduce((a, b) => ({...a, ...b}), {}); // ... is unpack operator
         }
     });
 })(jQuery);
