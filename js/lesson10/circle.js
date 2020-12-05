@@ -23,6 +23,8 @@
         console.log("Starting functions in document.ready");
 
         // circle grow and removal object
+        /* no need for a Module Factory, because I only need
+           one instance of this Revealing Module. */
         const circleControl = (function() {
 
             // caching the circles
