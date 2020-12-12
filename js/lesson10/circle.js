@@ -1,6 +1,6 @@
 /* File created by Ahmed Hamdy at 11/28/2020. */
 
-// JQuery Plugin to pars the form data to/from object
+// JQuery Plugin to parse the form data to/from object
 // this is the first thing to be executed right after document.ready
 (function($) {
     console.log("JQuery Plugins init()");
